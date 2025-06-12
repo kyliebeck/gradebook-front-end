@@ -1,4 +1,4 @@
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/assignments`;
 
 
 const index = async () => {
@@ -30,18 +30,6 @@ const create = async (formData) => {
     }
 };
 
-const deleteStudent = async (studentId) => {
-    try {
-        const res = await fetch(`${BASE_URL}/${studentId}`, {
-            // We specify that this is a 'DELETE' request
-            method: 'DELETE',
-        });
-        return res.json();
-    } catch (err) {
-        console.log(err);
-    }
-};
-
 const deleteAssignment = async (assignmentId) => {
     try {
         const res = await fetch(`${BASE_URL}/${assignmentId}`, {
@@ -58,6 +46,6 @@ console.log(await index());
 export {
     index,
     create,
-    deleteStudent,
-    deleteAssignment
+    deleteAssignment,
+
 };
