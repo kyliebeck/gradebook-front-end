@@ -1,27 +1,25 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import * as studentService from '../../services/studentService';
+
 
 const StudentDetails = (props) => {
 
     const { studentId } = useParams();
-    const [student, setStudent] = useState(null)
+    const { user } = useContext(UserContext);
+    console.log("props", props)
     const selectedStudent = props.students.find(
         (student) => {
-
+            console.log("student", student)
             return student._id === studentId
+
         }
+
     );
+    console.log("selectedStudent", selectedStudent)
 
 
-    useEffect(() => {
-        const fetchStudent = async () => {
-            const studentData = await studentService.show(studentId);
-            setStudent(studentData);
-        };
-        fetchStudent();
-    }, [studentId]);
 
 
 
@@ -29,12 +27,21 @@ const StudentDetails = (props) => {
         <>
 
             <h1>{selectedStudent.firstName} {selectedStudent.lastName}'s Details</h1>
-            <div>
-                <button onClick={() => props.handleDeleteStudent(selectedStudent._id)}>
-                    Delete Student
-                </button>
-            </div>
 
+            {selectedStudent.teacher._id === user._id && (
+
+                <>
+                    <p>Student Goals:</p>
+                    <p>Student Overall Grade:</p>
+
+
+
+
+                    <button onClick={() => props.handleDeleteStudent(studentId)}>
+                        Delete Student
+                    </button>
+                </>
+            )}
         </>
     )
 }

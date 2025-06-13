@@ -8,7 +8,7 @@ const AssignmentDetails = (props) => {
     const { assignmentId } = useParams();
     // access user object from usercontext
     const { user } = useContext(UserContext);
-    const [assignment, setAssignment] = useState(null)
+
     const selectedAssignment = props.assignments.find(
         (assignment) => {
 
@@ -16,21 +16,17 @@ const AssignmentDetails = (props) => {
         }
     );
 
-    useEffect(() => {
-        const fetchAssignment = async () => {
-            const assignmentData = await assignmentService.show(assignmentId);
-            setAssignment(assignmentData);
-        };
-        fetchAssignment();
-    }, [assignmentId]);
 
     return (
         <main>
             <h1>{selectedAssignment.title}</h1>
 
-            {assignment.teacher._id === user._id && (
+            {selectedAssignment.teacher._id === user._id && (
                 <>
-                    {/* Modify the button */}
+
+
+
+
                     <button onClick={() => props.handleDeleteAssignment(assignmentId)}>
                         Delete
                     </button>
