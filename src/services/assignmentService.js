@@ -3,21 +3,32 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/assignments`;
 
 const index = async () => {
     try {
-        const res = await fetch(BASE_URL);
+        const res = await fetch(BASE_URL, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        });
         return res.json();
-    } catch (err) {
-        console.log(err);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const show = async (assignmentId) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${assignmentId}`, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        });
+        return res.json();
+    } catch (error) {
+        console.log(error);
     }
 };
 
 const create = async (formData) => {
     try {
         const res = await fetch(BASE_URL, {
-            // We specify that this is a 'POST' request
             method: 'POST',
-            // We're sending JSON data, so we attach a Content-Type header
-            // and specify that the data being sent is type 'application/json'
             headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json',
             },
             // The formData, converted to JSON, is sent as the body
@@ -35,6 +46,9 @@ const deleteAssignment = async (assignmentId) => {
         const res = await fetch(`${BASE_URL}/${assignmentId}`, {
             // We specify that this is a 'DELETE' request
             method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
         });
         return res.json();
     } catch (err) {
@@ -45,6 +59,7 @@ const deleteAssignment = async (assignmentId) => {
 console.log(await index());
 export {
     index,
+    show,
     create,
     deleteAssignment,
 

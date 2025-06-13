@@ -1,5 +1,5 @@
-import { useEffect, useContext, useState } from 'react';
-import * as studentService from '../../services/studentService';
+import { useState } from 'react';
+import { Link } from 'react-router'
 
 
 
@@ -60,9 +60,9 @@ const StudentList = (props) => {
                     <ul>
                         {props.students.map((student) => (
                             <li
-                                key={student._id}
+                                key={student._id} className="student-name"
                                 style={{ cursor: 'pointer', color: "#646CFF" }}>
-                                {student.firstName} {student.lastName}
+                                <Link to={`/students/${student._id}`}>{student.firstName} {student.lastName}</Link>
                             </li>
 
 

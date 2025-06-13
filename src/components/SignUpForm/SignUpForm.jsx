@@ -17,12 +17,13 @@ const SignUpForm = () => {
     const { setUser } = useContext(UserContext);
     const [message, setMessage] = useState('');
     const [formData, setFormData] = useState({
+        nickname: '',
         username: '',
         password: '',
         passwordConf: '',
     });
 
-    const { username, password, passwordConf } = formData;
+    const { nickname, username, password, passwordConf } = formData;
 
     const handleChange = (evt) => {
         setMessage('');
@@ -53,10 +54,21 @@ const SignUpForm = () => {
             <p>{message}</p>
             <form onSubmit={handleSubmit}>
                 <div>
+                    <label htmlFor='nickname'>Name:</label>
+                    <input
+                        type='text'
+                        id='nickname'
+                        value={nickname}
+                        name='nickname'
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div>
                     <label htmlFor='username'>Username:</label>
                     <input
                         type='text'
-                        id='name'
+                        id='username'
                         value={username}
                         name='username'
                         onChange={handleChange}
