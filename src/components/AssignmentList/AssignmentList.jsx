@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from 'react'
 
 const AssignmentList = (props) => {
     const { user } = useContext(UserContext)
-
+    console.log("props.assignments", props.assignments)
     return (
 
         <main>

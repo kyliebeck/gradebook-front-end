@@ -35,28 +35,31 @@ const App = () => {
         console.log(err)
       }
     }
-
-    fetchStudents();
-
-  }, []
-
+    if (user) {
+      fetchStudents();
+    } else {
+      setStudents([]);
+    }
+  }, [user]
   )
 
   useEffect(() => {
     const fetchAssignments = async () => {
       try {
         const fetchedAssignments = await assignmentService.index();
+        console.log("fetched assignments", fetchedAssignments)
         setAssignments(fetchedAssignments);
 
       } catch (err) {
         console.log(err)
       }
     }
-
-    fetchAssignments();
-
-  }, []
-
+    if (user) {
+      fetchAssignments();
+    } else {
+      setAssignments([]);
+    }
+  }, [user]
   )
 
 

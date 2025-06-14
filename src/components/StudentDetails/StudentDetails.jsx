@@ -31,8 +31,9 @@ const StudentDetails = (props) => {
             {selectedStudent.teacher._id === user._id && (
 
                 <>
-                    <p>Student Goals:</p>
-                    <p>Student Overall Grade:</p>
+                    <p>Student Grade:</p>{selectedStudent.grade}
+                    <p>Student Goals:</p>{selectedStudent.goals}
+                    <p>Student Overall Score:</p>
 
 
 
