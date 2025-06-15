@@ -65,6 +65,7 @@ const StudentList = (props) => {
                                 key={student._id} className="student-name"
                                 style={{ cursor: 'pointer', color: "#646CFF" }}>
                                 <Link to={`/students/${student._id}`}>{student.firstName} {student.lastName}</Link>
+
                             </li>
 
 

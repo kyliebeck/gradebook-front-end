@@ -41,6 +41,23 @@ const create = async (formData) => {
     }
 };
 
+const update = async (formData) => {
+    console.log('update')
+    try {
+        const res = await fetch(`${BASE_URL}/${assignmentId}`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        return res.json();
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 const deleteAssignment = async (assignmentId) => {
     try {
         const res = await fetch(`${BASE_URL}/${assignmentId}`, {
@@ -61,6 +78,7 @@ export {
     index,
     show,
     create,
+    update,
     deleteAssignment,
 
 };

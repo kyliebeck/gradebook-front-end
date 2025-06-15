@@ -76,6 +76,7 @@ const App = () => {
       const newStudentList = [...students, newStudent]
       // set that array as the new students
       setStudents(newStudentList)
+      navigate('/students')
 
     } catch (err) {
       console.log(err);
@@ -135,6 +136,24 @@ const App = () => {
     }
   }
 
+  const handleUpdateAssignment = async (assignmentId, formData) => {
+    try {
+
+      const updatedAssignment = await assignmentService.update(assignmentId, formData);
+      // handle errors
+      if (updatedAssignment.err) {
+        throw new Error(updatedAssignment.err)
+      }
+      const updatedAssignmentList = assignments.map((assignment) => {
+        assignment._id !== updatedAssignment._id ? assignment : updatedAssignment
+      })
+      setAssignments(updatedAssignmentList);
+
+    } catch (err) {
+      console.log(err)
+    }
+  };
+
   return (
     <>
       <NavBar />
@@ -152,7 +171,8 @@ const App = () => {
               handleDeleteStudent={handleDeleteStudent} />}
             />
             <Route path='/assignments' element={<AssignmentList
-              assignments={assignments} />} />
+              assignments={assignments}
+              handleUpdateAssignment={handleUpdateAssignment} />} />
             <Route path='/assignments/new' element={<AssignmentForm handleAddAssignment={handleAddAssignment} />} />
             <Route path='/assignments/:assignmentId' element={<AssignmentDetails
               assignments={assignments}
