@@ -43,7 +43,7 @@ const create = async (formData) => {
     }
 };
 
-const update = async (studentId, studentFormData) => {
+const update = async (studentId, formData) => {
     try {
         const res = await fetch(`${BASE_URL}/${studentId}`, {
             method: 'PUT',
@@ -51,7 +51,7 @@ const update = async (studentId, studentFormData) => {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(studentFormData),
+            body: JSON.stringify(formData),
         });
         return res.json();
     } catch (error) {

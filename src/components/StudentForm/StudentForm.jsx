@@ -1,6 +1,7 @@
 import * as studentService from '../../services/studentService';
 import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router';
+import { Link } from 'react-router';
 
 const StudentForm = (props) => {
 
@@ -84,7 +85,7 @@ const StudentForm = (props) => {
                 <label htmlFor='goals'>Goals</label>
                 <textarea
                     type='text'
-                    name='goals-input'
+                    name='goals'
                     id='goals-input'
                     value={formData.goals}
                     onChange={handleChange}
@@ -98,6 +99,8 @@ const StudentForm = (props) => {
             <button onClick={() => props.handleDeleteStudent(studentId)}>
                 Delete Student
             </button>
+
+            <Link className='backLink' to={'/students'}>Cancel</Link>
 
         </main>
     )

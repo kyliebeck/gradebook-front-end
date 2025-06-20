@@ -18,7 +18,7 @@ const StudentDetails = (props) => {
         }
 
     );
-
+    console.log('props', props)
 
 
 
@@ -26,19 +26,19 @@ const StudentDetails = (props) => {
 
     return (
         <>
+            <Link className='backLink' to={'/students'}>Back</Link>
 
             <h1>{selectedStudent.firstName} {selectedStudent.lastName}'s Details</h1>
 
-            {selectedStudent.teacher._id === user._id && (
+            <>
+                <p>Student Grade Year: {selectedStudent.grade}</p>
+                <p>Student Goals: {selectedStudent.goals}</p>
 
-                <>
-                    <p>Student Grade:</p>{selectedStudent.grade}
-                    <p>Student Goals:</p>{selectedStudent.goals}
-                    <p>Student Overall Score:</p>
 
-                    <Link to={`/students/${studentId}/edit`}>Update</Link>
-                </>
-            )}
+                <Link className='userActionLink' to={`/students/${studentId}/edit`}>Update</Link>
+
+            </>
+
         </>
     )
 }

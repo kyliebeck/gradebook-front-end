@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router'
-
-
+import { MdOutlinePersonAddAlt1 } from "react-icons/md";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const StudentList = (props) => {
 
-
+    const [showForm, setShowForm] = useState(false);
     // formData state to control the form.
     const defaultFormData = {
         firstName: '',
@@ -28,30 +28,44 @@ const StudentList = (props) => {
         console.log(formData)
     };
 
+    const handleToggleForm = async () => {
+        setShowForm(!showForm)
+    };
+
     return (
         <div>
-            <h1>My Class List</h1>
+            <h1 className='classListTitle'>My Class List</h1>
             <div>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input
-                        id="firstName"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        required
-                    />
-                    <label htmlFor="lastName"> Last Name </label>
-                    <input
-                        id="lastName"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        required
-                    />
 
-                    <button type="submit">Add New Student</button>
-                </form>
+
+                <button id='addStudentButton' onClick={handleToggleForm}>
+                    {showForm ? <IoIosCloseCircleOutline className='showFormPic' /> : <MdOutlinePersonAddAlt1 className='showFormPic' />}
+                </button>
+
+                {showForm && (
+                    <form className='addStudentForm' onSubmit={handleSubmit}>
+                        <label htmlFor="firstName" ></label>
+                        <input
+                            id="firstName-input"
+                            name="firstName"
+                            placeholder='First Name'
+                            value={formData.firstName}
+                            onChange={handleChange}
+                            required
+                        />
+                        <label htmlFor="lastName"></label>
+                        <input
+                            id="lastName-input"
+                            name="lastName"
+                            placeholder='Last Name'
+                            value={formData.lastName}
+                            onChange={handleChange}
+                            required
+                        />
+                        <button id='addStudentButton' type="submit">Add Student</button>
+                    </form>
+                )}
+
 
                 {/* if there are no students, render "there are no students"
                 else, iterate through the students with for each loop */}
@@ -62,9 +76,10 @@ const StudentList = (props) => {
                     <ul>
                         {props.students.map((student) => (
                             <li
-                                key={student._id} className="student-name"
+                                key={student._id} className="studentList"
                                 style={{ cursor: 'pointer', color: "#646CFF" }}>
-                                <Link to={`/students/${student._id}`}>{student.firstName} {student.lastName}</Link>
+                                <Link
+                                    className='studentName' to={`/students/${student._id}`}>{student.firstName} {student.lastName}</Link>
 
                             </li>
 

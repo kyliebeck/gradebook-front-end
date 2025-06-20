@@ -2,3 +2,81 @@ body {
     background-color: #9bc3e2;
     padding-bottom: 300px;
 }
+
+.showFormPic {
+    height: 3vw;
+    width: 3vw;
+    color: #225175;
+
+
+}
+
+.classListTitle {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.studentList {
+    list-style: none;
+    line-height: 4vw
+}
+
+.studentName {
+    text-decoration: underline;
+    color: black;
+    font-size: 2.2vw;
+
+}
+
+.addStudentForm {
+    border: 1px dashed black;
+    padding: 10px;
+    width: 320px;
+}
+
+#addStudentButton {
+    text-decoration: none;
+    color: #f0f6fb;
+    text-align: center;
+    padding: .5vw;
+    margin: 5px 5px 8px 0;
+    border-radius: 5px;
+    background-color: #3988c4;
+    font-size: 80%;
+    text-shadow: 1px 1px 1px #000;
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+#firstName-input {
+    border: 1px solid black;
+    margin: 5px 5px 5px 0;
+    line-height: 20px;
+}
+
+#lastName-input {
+    border: 1px solid black;
+    margin: 5px 8px 5px 3px;
+    line-height: 20px;
+}
+
+.backLink {
+    text-decoration: none;
+    color: black
+}
+
+.userActionLink {
+    text-decoration: none;
+    color: #f0f6fb;
+    text-align: center;
+    padding: 1vw;
+    margin: 5px 5px 8px 0;
+    border-radius: 5px;
+    background-color: #3988c4;
+    font-size: 90%;
+    text-shadow: 1px 1px 1px #000;
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}

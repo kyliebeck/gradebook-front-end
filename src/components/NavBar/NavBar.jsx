@@ -6,8 +6,9 @@ import { Link } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
 import './NavBar.css';
 import Logo from '../../assets/Logo.png'
+import { GiHamburgerMenu } from "react-icons/gi";
 
-<link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet"></link>
+
 
 const NavBar = () => {
 
@@ -26,14 +27,15 @@ const NavBar = () => {
                 <div className='navBarAuth'>
                     {/* <div className='welcomeUser'>Welcome, {user.username}</div> */}
 
-                    <img id='appLogoPic' src={Logo} alt="gradebook logo"></img>
-
-                    <div className='navs'><Link to='/' id='navLinks'>Home</Link>
+                    <div className='leftNav'>
+                        <GiHamburgerMenu className='hamburgerMenu' />
                     </div>
+                    <div className='logoContainer'>
+                        <img id='appLogoPic' src={Logo} alt="gradebook logo"></img>
 
-                    <div className='navs'><Link to='/students' id='navLinks'>My Class List</Link></div>
-
-                    <div className='navs'><Link to='/assignments' id='navLinks'>My Assignments</Link></div>
+                        <div className='navBarCenter'><Link to='/' id='navLinks'>Gradebook</Link>
+                        </div>
+                    </div>
 
                     <div className='navBarRight'>
                         <Link to='/' onClick={handleSignOut} id='authLink'>Sign Out</Link>
@@ -42,8 +44,12 @@ const NavBar = () => {
             ) : (
                 <div className='navBarAuth'>
 
-                    <div className='navBarLeft'>
-                        <Link to='/' id='homeLink'>Home</Link>
+                    <div className='logoContainer'>
+                        <img id='appLogoPic' src={Logo} alt="gradebook logo"></img>
+
+                        <div className='navBarCenter'>
+                            <Link to='/' id='homeLink'>Gradebook</Link>
+                        </div>
                     </div>
 
                     <div className='navBarRight'>
@@ -53,8 +59,9 @@ const NavBar = () => {
                     </div>
 
                 </div>
-            )}
-        </nav>
+            )
+            }
+        </nav >
     );
 };
 
