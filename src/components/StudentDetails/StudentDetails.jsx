@@ -1,23 +1,24 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
-import * as studentService from '../../services/studentService';
+import { Link } from 'react-router';
+
 
 
 const StudentDetails = (props) => {
 
     const { studentId } = useParams();
     const { user } = useContext(UserContext);
-    console.log("props", props)
+
     const selectedStudent = props.students.find(
         (student) => {
-            console.log("student", student)
+
             return student._id === studentId
 
         }
 
     );
-    console.log("selectedStudent", selectedStudent)
+
 
 
 
@@ -35,12 +36,7 @@ const StudentDetails = (props) => {
                     <p>Student Goals:</p>{selectedStudent.goals}
                     <p>Student Overall Score:</p>
 
-
-
-
-                    <button onClick={() => props.handleDeleteStudent(studentId)}>
-                        Delete Student
-                    </button>
+                    <Link to={`/students/${studentId}/edit`}>Update</Link>
                 </>
             )}
         </>

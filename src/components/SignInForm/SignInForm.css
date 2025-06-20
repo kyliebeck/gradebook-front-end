@@ -1,0 +1,59 @@
+.authForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2vw;
+}
+
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 1vw 4vw 1vw 5vw;
+}
+
+.welcome {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+#authTitle {
+    margin-top: -10px;
+    margin-bottom: 5px;
+
+}
+
+.authInput {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 20px;
+    width: 100%;
+    margin: 1vw 2vw 1vw 2vw;
+}
+
+#authLabels {
+    font-size: 20px;
+}
+
+.buttonContainer {
+    align-self: center;
+
+
+}
+
+.authButtons {
+    background-color: #3988c4;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    text-shadow: 1px 1px 1px #000;
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+
+
+}

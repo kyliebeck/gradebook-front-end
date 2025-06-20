@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router';
 import { signUp } from '../../services/authService';
 // Import the UserContext object
 import { UserContext } from '../../contexts/UserContext';
+import './SignUpForm.css'
 
 const SignUpForm = () => {
     const navigate = useNavigate();
@@ -49,12 +50,12 @@ const SignUpForm = () => {
     };
 
     return (
-        <main>
-            <h1>Sign Up</h1>
-            <p>{message}</p>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor='nickname'>Name:</label>
+        <main className='authForm'>
+            <div className='welcome'>Welcome to Gradebook</div>
+            <div id='authTitle'><h1>Sign Up</h1></div>
+            <form className='signUpForm' onSubmit={handleSubmit}>
+                <div className='authInput'>
+                    <label htmlFor='nickname'>Name *</label>
                     <input
                         type='text'
                         id='nickname'
@@ -64,8 +65,8 @@ const SignUpForm = () => {
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor='username'>Username:</label>
+                <div className='authInput'>
+                    <label htmlFor='username'>Username *</label>
                     <input
                         type='text'
                         id='username'
@@ -75,8 +76,8 @@ const SignUpForm = () => {
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor='password'>Password:</label>
+                <div className='authInput'>
+                    <label htmlFor='password'>Password *</label>
                     <input
                         type='password'
                         id='password'
@@ -86,8 +87,8 @@ const SignUpForm = () => {
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor='confirm'>Confirm Password:</label>
+                <div className='authInput'>
+                    <label htmlFor='confirm'>Confirm Password *</label>
                     <input
                         type='password'
                         id='confirm'
@@ -97,9 +98,9 @@ const SignUpForm = () => {
                         required
                     />
                 </div>
-                <div>
-                    <button disabled={isFormInvalid()}>Sign Up</button>
-                    <button onClick={() => navigate('/')}>Cancel</button>
+                <div className='buttonContainer'>
+                    <button className='authButtons' disabled={isFormInvalid()}>Sign Up</button>
+                    <button className='authButtons' onClick={() => navigate('/')}>Cancel</button>
                 </div>
             </form>
         </main>

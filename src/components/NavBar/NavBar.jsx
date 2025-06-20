@@ -4,6 +4,10 @@ import { Link } from 'react-router';
 
 // Import the UserContext object
 import { UserContext } from '../../contexts/UserContext';
+import './NavBar.css';
+import Logo from '../../assets/Logo.png'
+
+<link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet"></link>
 
 const NavBar = () => {
 
@@ -17,21 +21,38 @@ const NavBar = () => {
     };
 
     return (
-        <nav>
+        <nav className='container'>
             {user ? (
-                <ul>
-                    <li>Welcome, {user.username}</li>
-                    <li><Link to='/'>Dashboard</Link></li>
-                    <li><Link to='/students'>My Class List</Link></li>
-                    <li><Link to='/assignments'>My Assignments</Link></li>
-                    <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
-                </ul>
+                <div className='navBarAuth'>
+                    {/* <div className='welcomeUser'>Welcome, {user.username}</div> */}
+
+                    <img id='appLogoPic' src={Logo} alt="gradebook logo"></img>
+
+                    <div className='navs'><Link to='/' id='navLinks'>Home</Link>
+                    </div>
+
+                    <div className='navs'><Link to='/students' id='navLinks'>My Class List</Link></div>
+
+                    <div className='navs'><Link to='/assignments' id='navLinks'>My Assignments</Link></div>
+
+                    <div className='navBarRight'>
+                        <Link to='/' onClick={handleSignOut} id='authLink'>Sign Out</Link>
+                    </div>
+                </div>
             ) : (
-                <ul>
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to="/sign-in">Sign In</Link></li>
-                    <li><Link to="/sign-up">Sign Up</Link></li>
-                </ul>
+                <div className='navBarAuth'>
+
+                    <div className='navBarLeft'>
+                        <Link to='/' id='homeLink'>Home</Link>
+                    </div>
+
+                    <div className='navBarRight'>
+                        <Link to="/sign-in" id='authLink'>Sign In</Link>
+
+                        <Link to="/sign-up" id='authLink'>Register</Link>
+                    </div>
+
+                </div>
             )}
         </nav>
     );

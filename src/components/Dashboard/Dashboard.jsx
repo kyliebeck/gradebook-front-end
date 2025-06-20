@@ -2,6 +2,7 @@ import { Link } from 'react-router'
 import { useContext } from 'react';
 import * as userService from '../../services/userService';
 import { UserContext } from '../../contexts/UserContext';
+import '../../App.css';
 
 const Dashboard = () => {
     const { user } = useContext(UserContext);

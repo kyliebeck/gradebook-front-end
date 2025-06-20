@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router';
 import { Routes, Route } from 'react-router'; // Import React Router
+import './App.css';
 import * as studentService from './services/studentService';
 import * as assignmentService from './services/assignmentService';
 import NavBar from './components/NavBar/NavBar';
@@ -11,6 +12,7 @@ import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import StudentList from './components/StudentList/StudentList';
 import StudentDetails from './components/StudentDetails/StudentDetails';
+import StudentForm from './components/StudentForm/StudentForm';
 import AssignmentList from './components/AssignmentList/AssignmentList';
 import AssignmentForm from './components/AssignmentForm/AssignmentForm';
 import AssignmentDetails from './components/AssignmentDetails/AssignmentDetails';
@@ -154,6 +156,22 @@ const App = () => {
     }
   };
 
+  const handleUpdateStudent = async (studentId, studentFormData) => {
+    try {
+      const updatedStudent = await studentService.update(studentId, studentFormData);
+      console.log('updated Student', updatedStudent)
+      // handle errors
+      if (updatedStudent.err) {
+        throw new Error(updatedStudent.err)
+      }
+      setStudents(students.map((student) => (studentId === student._id ? updatedStudent : student)));
+
+      navigate(`/students/${studentId}`)
+    } catch (err) {
+      console.log(err)
+    }
+  };
+
   return (
     <>
       <NavBar />
@@ -166,18 +184,26 @@ const App = () => {
             <Route path='/students' element={<StudentList
               students={students}
               handleAddStudent={handleAddStudent} />} />
+
             <Route path='/students/:studentId' element={<StudentDetails
               students={students}
-              handleDeleteStudent={handleDeleteStudent} />}
-            />
+            />} />
+
+            <Route path='/students/:studentId/edit' element={<StudentForm
+              handleUpdateStudent={handleUpdateStudent}
+              handleDeleteStudent={handleDeleteStudent} />} />
+
             <Route path='/assignments' element={<AssignmentList
               assignments={assignments}
               handleUpdateAssignment={handleUpdateAssignment} />} />
+
             <Route path='/assignments/new' element={<AssignmentForm handleAddAssignment={handleAddAssignment} />} />
+
             <Route path='/assignments/:assignmentId' element={<AssignmentDetails
               assignments={assignments}
               handleDeleteAssignment={handleDeleteAssignment} />}
             />
+
           </>
         ) : (
           <>

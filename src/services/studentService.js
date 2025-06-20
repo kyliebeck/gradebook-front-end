@@ -43,6 +43,22 @@ const create = async (formData) => {
     }
 };
 
+const update = async (studentId, studentFormData) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${studentId}`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(studentFormData),
+        });
+        return res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 const deleteStudent = async (studentId) => {
     try {
         const res = await fetch(`${BASE_URL}/${studentId}`, {
@@ -64,6 +80,7 @@ console.log(await index());
 export {
     index,
     show,
+    update,
     create,
     deleteStudent,
 

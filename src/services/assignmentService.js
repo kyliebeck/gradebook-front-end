@@ -44,7 +44,7 @@ const create = async (formData) => {
 const update = async (formData) => {
     console.log('update')
     try {
-        const res = await fetch(`${BASE_URL}/${assignmentId}`, {
+        const res = await fetch(BASE_URL, {
             method: 'PUT',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,

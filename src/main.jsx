@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router';
 import { UserProvider } from './contexts/UserContext.jsx';
 
 import App from './App.jsx';
+import './App.css'
 
 import './index.css';
 

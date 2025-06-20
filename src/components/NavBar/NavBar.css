@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    background-color: #225175;
+    padding: 1vw;
+    border: 1px solid black;
+
+}
+
+.navBarAuth {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+.navBarLeft {
+    align-self: center;
+
+}
+
+.navBarRight {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: 1vw;
+    justify-content: center;
+
+}
+
+
+
+#homeLink {
+    color: #f0f6fb;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.8em;
+    align-self: center;
+    text-shadow: 1px 1px 1px #000;
+
+}
+
+#authLink {
+    text-decoration: none;
+    color: #f0f6fb;
+    text-align: center;
+    height: 2vw;
+    width: 6vw;
+    border-radius: 5px;
+    background-color: #3988c4;
+    padding: 1vw;
+    font-size: 90%;
+    text-shadow: 1px 1px 1px #000;
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.navs {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: 90%;
+
+
+
+}
+
+#navLinks {
+    text-decoration: none;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+    font-size: 2vw;
+
+}
+
+#navLinks:hover {
+    cursor: pointer;
+}
+
+#appLogoPic {
+    width: 50px;
+    height: 50px;
+    margin: 10px 20px 10px 0;
+
+}
