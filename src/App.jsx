@@ -49,7 +49,7 @@ const App = () => {
     const fetchAssignments = async () => {
       try {
         const fetchedAssignments = await assignmentService.index();
-        console.log("fetched assignments", fetchedAssignments)
+
         setAssignments(fetchedAssignments);
 
       } catch (err) {
@@ -59,10 +59,11 @@ const App = () => {
     if (user) {
       fetchAssignments();
     } else {
+
       setAssignments([]);
+
     }
-  }, [user]
-  )
+  }, [user])
 
 
 
@@ -88,15 +89,15 @@ const App = () => {
   const handleAddAssignment = async (formData) => {
     try {
       // call assignment service and assign a return value to new assignment
-      const newAssignment = await assignmentService.create(formData);
+      const newAssignments = await assignmentService.create(formData);
 
-      if (newAssignment.err) {
-        throw new Error(newAssignment.err);
+      if (newAssignments.err) {
+        throw new Error(newAssignments.err);
       }
       // add the assignment object and the current list of assignments to a new array
-      const newAssignmentList = [...assignments, newAssignment]
+      const newAssignmentList = [...assignments, ...newAssignments]
       // set the array as the new assignment array
-      setAssignments(newAssignmentList, ...assignments)
+      setAssignments(newAssignmentList)
       navigate('/assignments');
 
     } catch (err) {
@@ -140,7 +141,7 @@ const App = () => {
 
   const handleUpdateAssignment = async (assignmentId, formData) => {
     try {
-
+      return
       const updatedAssignment = await assignmentService.update(assignmentId, formData);
       // handle errors
       if (updatedAssignment.err) {
@@ -159,7 +160,7 @@ const App = () => {
   const handleUpdateStudent = async (studentId, studentFormData) => {
     try {
       const updatedStudent = await studentService.update(studentId, studentFormData);
-      console.log('updated Student', updatedStudent)
+
       // handle errors
       if (updatedStudent.err) {
         throw new Error(updatedStudent.err)

@@ -19,13 +19,13 @@ const StudentList = (props) => {
         evt.preventDefault();
         props.handleAddStudent(formData);
         setFormData(defaultFormData)
-        console.log(props)
+
     };
 
     // handleChange function to update formData state.
     const handleChange = (evt) => {
         setFormData({ ...formData, [evt.target.name]: evt.target.value });
-        console.log(formData)
+
     };
 
     const handleToggleForm = async () => {

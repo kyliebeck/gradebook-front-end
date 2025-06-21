@@ -18,7 +18,7 @@ const StudentDetails = (props) => {
         }
 
     );
-    console.log('props', props)
+
 
 
 

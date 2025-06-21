@@ -14,7 +14,7 @@ const StudentForm = (props) => {
         goals: '',
 
     })
-    console.log('formdata', formData)
+
 
 
 

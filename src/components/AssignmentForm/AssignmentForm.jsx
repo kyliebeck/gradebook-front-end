@@ -17,10 +17,10 @@ const AssignmentForm = (props) => {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         props.handleAddAssignment(formData)
-        setFormData(defaultFormData)
 
 
-        console.log('formData', formData);
+
+
     }
 
 
@@ -70,7 +70,7 @@ const AssignmentForm = (props) => {
                     <option value="Homework">Homework</option>
                     <option value="Classwork">Classwork</option>
                     <option value="Quiz">Quiz</option>
-                    <option value="Text">Test</option>
+                    <option value="Test">Test</option>
                     <option value="Extra-Credit">Extra-Credit</option>
                     <option value="Quiz">Project</option>
                 </select>

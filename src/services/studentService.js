@@ -76,7 +76,7 @@ const deleteStudent = async (studentId) => {
 
 
 
-console.log(await index());
+// console.log(await index());
 export {
     index,
     show,

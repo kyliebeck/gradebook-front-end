@@ -42,7 +42,7 @@ const create = async (formData) => {
 };
 
 const update = async (formData) => {
-    console.log('update')
+
     try {
         const res = await fetch(BASE_URL, {
             method: 'PUT',
@@ -73,7 +73,7 @@ const deleteAssignment = async (assignmentId) => {
     }
 };
 
-console.log(await index());
+// console.log(await index());
 export {
     index,
     show,
