@@ -1,5 +1,5 @@
 // Import the useContext hook
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router';
 
 // Import the UserContext object
@@ -7,12 +7,17 @@ import { UserContext } from '../../contexts/UserContext';
 import './NavBar.css';
 import Logo from '../../assets/Logo.png'
 import { GiHamburgerMenu } from "react-icons/gi";
+import HamburgerNav from '../HamburgerNav/HamburgerNav'
+
 
 
 
 const NavBar = () => {
 
+
     const { user, setUser } = useContext(UserContext);
+    const [showSideNav, setShowSideNav] = useState(false)
+
     // Add the handleSignOut function
     const handleSignOut = () => {
         // Clear the token from localStorage
@@ -21,15 +26,28 @@ const NavBar = () => {
         setUser(null);
     };
 
+    const toggleHamburger = async () => {
+        setShowSideNav(!showSideNav)
+    };
+
+
+
     return (
         <nav className='container'>
             {user ? (
                 <div className='navBarAuth'>
-                    {/* <div className='welcomeUser'>Welcome, {user.username}</div> */}
 
-                    <div className='leftNav'>
-                        <GiHamburgerMenu className='hamburgerMenu' />
+                    <div className='sideBarContainer'>
+                        <div className='sideNavToggle'
+                            onClick={toggleHamburger}>
+                            {showSideNav ? 'Close' : 'Menu'}
+                        </div>
+
+                        {showSideNav && (
+                            <HamburgerNav />
+                        )}
                     </div>
+
                     <div className='logoContainer'>
                         <img id='appLogoPic' src={Logo} alt="gradebook logo"></img>
 
@@ -57,6 +75,9 @@ const NavBar = () => {
 
                         <Link to="/sign-up" id='authLink'>Register</Link>
                     </div>
+
+
+
 
                 </div>
             )
