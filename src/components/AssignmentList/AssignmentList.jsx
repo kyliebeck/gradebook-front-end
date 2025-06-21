@@ -63,8 +63,6 @@ const AssignmentList = (props) => {
                                 <button type='submit' className='saveBtn'>Save</button>
                             </form>
 
-
-
                         </li>
 
                     ))}

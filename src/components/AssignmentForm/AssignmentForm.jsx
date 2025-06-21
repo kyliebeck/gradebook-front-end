@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { Link } from 'react-router';
 
 const AssignmentForm = (props) => {
 
@@ -17,10 +17,6 @@ const AssignmentForm = (props) => {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         props.handleAddAssignment(formData)
-
-
-
-
     }
 
 
@@ -30,62 +26,75 @@ const AssignmentForm = (props) => {
 
 
     return (
-        <>
-            <h1>New Assignment</h1>
+        <div className='newFormContainer'>
 
-            <form onSubmit={handleSubmit}>
-                <label htmlFor='title-input'>Assignment Title</label>
-                <input
-                    required
-                    type='text'
-                    name='title'
-                    id='title-input'
-                    value={formData.title}
-                    onChange={handleChange}
+            <h1 className='assignmentFormTitle'>New Assignment</h1>
 
-                />
-                <label htmlFor='subject-input'>Subject:</label>
-                <select
-                    name='subject'
-                    id='subject-input'
-                    value={formData.subject}
-                    onChange={handleChange}>
-                    <option value="">Select...</option>
-                    <option value="Math">Math</option>
-                    <option value="Science">Science</option>
-                    <option value="History">History</option>
-                    <option value="Writing">Writing</option>
-                    <option value="Reading">Reading</option>
-                    <option value="Arts">Arts</option>
-                    <option value="Social-Emotional">Social-Emotional</option>
-                </select>
-
-                <label htmlFor='assignmentType-input'>Assignment Type:</label>
-                <select
-                    name='assignmentType'
-                    id='assignmentType-input'
-                    value={formData.assignmentType}
-                    onChange={handleChange}>
-                    <option value="">Select...</option>
-                    <option value="Homework">Homework</option>
-                    <option value="Classwork">Classwork</option>
-                    <option value="Quiz">Quiz</option>
-                    <option value="Test">Test</option>
-                    <option value="Extra-Credit">Extra-Credit</option>
-                    <option value="Quiz">Project</option>
-                </select>
-                <label htmlFor='maxPoints-input'>Possible Points</label>
-                <input
-                    required
-                    type='text'
-                    name='maxPoints'
-                    id='maxPoints-input'
-                    value={formData.maxPoints}
-                    onChange={handleChange}
-                />
-                <button type='submit'>SUBMIT</button>
+            <form className='assignmentForm' onSubmit={handleSubmit}>
+                <ul>
+                    <li><label htmlFor='title-input'>Assignment Title: </label>
+                        <input
+                            className='assignment-input'
+                            required
+                            type='text'
+                            name='title'
+                            id='title-input'
+                            value={formData.title}
+                            onChange={handleChange}
+                        />
+                    </li>
+                    <li>
+                        <label htmlFor='subject-input'>Subject: </label>
+                        <select
+                            className='assignment-input'
+                            name='subject'
+                            id='subject-input'
+                            value={formData.subject}
+                            onChange={handleChange}>
+                            <option value="">Select...</option>
+                            <option value="Math">Math</option>
+                            <option value="Science">Science</option>
+                            <option value="History">History</option>
+                            <option value="Writing">Writing</option>
+                            <option value="Reading">Reading</option>
+                            <option value="Arts">Arts</option>
+                            <option value="Social-Emotional">Social-Emotional</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label htmlFor='assignmentType-input'>Assignment Type: </label>
+                        <select
+                            className='assignment-input'
+                            name='assignmentType'
+                            id='assignmentType-input'
+                            value={formData.assignmentType}
+                            onChange={handleChange}>
+                            <option value="">Select...</option>
+                            <option value="Homework">Homework</option>
+                            <option value="Classwork">Classwork</option>
+                            <option value="Quiz">Quiz</option>
+                            <option value="Test">Test</option>
+                            <option value="Extra-Credit">Extra-Credit</option>
+                            <option value="Quiz">Project</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label htmlFor='maxPoints-input'>Possible Points: </label>
+                        <input
+                            className='assignment-points-input'
+                            required
+                            type='number'
+                            name='maxPoints'
+                            id='maxPoints-input'
+                            value={formData.maxPoints}
+                            onChange={handleChange}
+                        />
+                    </li>
+                </ul>
+                <button className='submitBtn' type='submit'>SAVE</button>
             </form>
-        </>
+            <Link className='backLink' to={'/assignments'}>Cancel</Link>
+        </div>
 
     )
 }

@@ -9,41 +9,33 @@ const AssignmentDetails = (props) => {
     const { assignmentId } = useParams();
     // access user object from usercontext
     const { user } = useContext(UserContext);
-
-
-
-
     const selectedAssignment = props.assignments.find(
         (assignment) => {
-
             return assignment._id === assignmentId
         }
     );
 
-
-
     return (
-        <main>
-            <h1>{selectedAssignment.title}</h1>
+        <div className='assignmentDetailContainer'>
 
+            <div
+                className='assignmentDetailTitle'><h1>{selectedAssignment.title} {selectedAssignment.subject} {selectedAssignment.assignmentType}</h1>
+            </div>
 
-
-
-
-            <p>{selectedAssignment.maxPoints}</p>
-
+            <div className='assignmentDetailForm'>
+                <p>{selectedAssignment.maxPoints} points possible</p>
+                <p>Standards:</p>
+                <p>Resources:</p>
+            </div>
             {selectedAssignment.teacher._id === user._id && (
                 <>
-                    <button onClick={() => props.handleDeleteAssignment(assignmentId)}>
-                        Delete
+                    <button className='submitBtn' onClick={() => props.handleDeleteAssignment(assignmentId)}>Delete
                     </button>
-                    <Link to='/assignments'>Back</Link>
+                    <Link to='/assignments' className='backLink'>Back</Link>
                 </>
             )}
-
-        </main>
+        </div>
     )
-
 }
 
 

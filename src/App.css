@@ -126,3 +126,75 @@ body {
     flex-direction: column;
     line-height: 30px;
 }
+
+.newFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.assignmentFormTitle {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.assignmentForm {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.assignmentForm ul li {
+    list-style: none;
+    line-height: 50px;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.assignment-input {
+    border: 1px solid black;
+    height: 30px;
+    font-size: 20px;
+}
+
+.assignment-points-input {
+    border: 1px solid black;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+}
+
+.submitBtn {
+    text-decoration: none;
+    align-self: center;
+    width: fit-content;
+    color: #f0f6fb;
+    text-align: center;
+    padding: 1vw;
+    margin: 5px 5px 8px 0;
+    border-radius: 5px;
+    background-color: #3988c4;
+    font-size: 90%;
+    text-shadow: 1px 1px 1px #000;
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.assignmentDetailContainer {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    margin-top: 30px;
+
+}
+
+.assignmentDetailTitle {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.assignmentDetailForm {
+    font-size: 20px
+}

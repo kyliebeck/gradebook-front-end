@@ -43,6 +43,7 @@
     text-align: center;
     text-shadow: 1px 1px 1px #000;
     font-size: 4vw;
+    width: 100%;
 
 }
 
@@ -58,6 +59,7 @@
 
 #authLink {
     text-decoration: none;
+    width: fit-content;
     color: #f0f6fb;
     text-align: center;
     width: 5vw;
@@ -114,10 +116,6 @@
     z-index: 1;
 }
 
-.sideNavLink {
-    text-decoration: none;
-    color: black
-}
 
 
 .sideBar ul li {
@@ -127,8 +125,15 @@
     padding: 1%;
 }
 
+.sideBar ul li a {
+    text-decoration: none;
+    color: black;
+    margin-right: auto;
+}
+
 .sideBar ul li:hover {
-    background-color: #3988c4
+    background-color: #3988c4;
+    width: 100%
 }
 
 
