@@ -43,41 +43,43 @@ const AssignmentForm = (props) => {
                             onChange={handleChange}
                         />
                     </li>
-                    <li>
-                        <label htmlFor='subject-input'>Subject: </label>
-                        <select
-                            className='assignment-input'
-                            name='subject'
-                            id='subject-input'
-                            value={formData.subject}
-                            onChange={handleChange}>
-                            <option value="">Select...</option>
-                            <option value="Math">Math</option>
-                            <option value="Science">Science</option>
-                            <option value="History">History</option>
-                            <option value="Writing">Writing</option>
-                            <option value="Reading">Reading</option>
-                            <option value="Arts">Arts</option>
-                            <option value="Social-Emotional">Social-Emotional</option>
-                        </select>
-                    </li>
-                    <li>
-                        <label htmlFor='assignmentType-input'>Assignment Type: </label>
-                        <select
-                            className='assignment-input'
-                            name='assignmentType'
-                            id='assignmentType-input'
-                            value={formData.assignmentType}
-                            onChange={handleChange}>
-                            <option value="">Select...</option>
-                            <option value="Homework">Homework</option>
-                            <option value="Classwork">Classwork</option>
-                            <option value="Quiz">Quiz</option>
-                            <option value="Test">Test</option>
-                            <option value="Extra-Credit">Extra-Credit</option>
-                            <option value="Quiz">Project</option>
-                        </select>
-                    </li>
+                    <div className='formSection'>
+                        <li>
+                            <label htmlFor='subject-input'>Subject: </label>
+                            <select
+                                className='assignment-input-select'
+                                name='subject'
+                                id='subject-input'
+                                value={formData.subject}
+                                onChange={handleChange}>
+                                <option value="">Select...</option>
+                                <option value="Math">Math</option>
+                                <option value="Science">Science</option>
+                                <option value="History">History</option>
+                                <option value="Writing">Writing</option>
+                                <option value="Reading">Reading</option>
+                                <option value="Arts">Arts</option>
+                                <option value="Social-Emotional">Social-Emotional</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label htmlFor='assignmentType-input'>Assignment Type: </label>
+                            <select
+                                className='assignment-input-select'
+                                name='assignmentType'
+                                id='assignmentType-input'
+                                value={formData.assignmentType}
+                                onChange={handleChange}>
+                                <option value="">Select...</option>
+                                <option value="Homework">Homework</option>
+                                <option value="Classwork">Classwork</option>
+                                <option value="Quiz">Quiz</option>
+                                <option value="Test">Test</option>
+                                <option value="Extra-Credit">Extra-Credit</option>
+                                <option value="Quiz">Project</option>
+                            </select>
+                        </li>
+                    </div>
                     <li>
                         <label htmlFor='maxPoints-input'>Possible Points: </label>
                         <input

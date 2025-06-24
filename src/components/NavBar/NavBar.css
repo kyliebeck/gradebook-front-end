@@ -1,8 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=LXGW+Marker+Gothic&display=swap");
+
+
 .container {
     display: flex;
     background-color: #225175;
     padding: .5vw;
     border: 1px solid black;
+    width: 100%;
+
 
 }
 
@@ -23,8 +28,7 @@
 .navBarRight {
     display: flex;
     flex-direction: column;
-    margin-left: 0;
-    margin-right: 0;
+    margin-right: 30px;
     justify-content: flex-start;
 
 }
@@ -34,10 +38,13 @@
     flex-direction: row;
     justify-self: center;
     margin: 0;
+    align-items: center;
+    width: 25%
 }
 
 #navLinks {
     text-decoration: none;
+    font-family: "LXGW Marker Gothic", sans-serif;
     color: white;
     text-decoration: none;
     text-align: center;
@@ -54,24 +61,29 @@
     font-size: 1.8em;
     align-self: center;
     text-shadow: 1px 1px 1px #000;
+    font-family: "LXGW Marker Gothic", sans-serif;
+
 
 }
 
 #authLink {
+    font-family: "LXGW Marker Gothic", sans-serif;
     text-decoration: none;
     width: fit-content;
+    height: fit-content;
     color: #f0f6fb;
     text-align: center;
-    width: 5vw;
     border-radius: 5px;
     background-color: #3988c4;
     padding: 1vw;
-    font-size: 90%;
+    font-size: 1.5vw;
     text-shadow: 1px 1px 1px #000;
     box-shadow:
         inset 2px 2px 3px rgba(255, 255, 255, 0.6),
         inset -2px -2px 3px rgba(0, 0, 0, 0.6);
 }
+
+
 
 #navLinks:hover {
     cursor: pointer;
@@ -86,35 +98,52 @@
 
 
 .sideNavToggle {
-    justify-self: center;
+    align-content: center;
     background-color: #3988c4;
     color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+    font-size: 1.5vw;
     cursor: pointer;
     border: 1px solid black;
+    margin: .5vw;
+    width: 5vw;
+    height: 4vw;
+    font-family: "LXGW Marker Gothic", sans-serif;
 
 }
 
-.navBarAuth {
-    width: 100%;
-
+.sideBarContainer :hover {
+    background-color: #3988c4;
+    color: white;
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.8),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.8);
 }
+
+.sideBarContainer :active {
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.8),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.8);
+}
+
 
 .sideBar ul {
     display: flex;
     flex-direction: column;
     list-style: none;
+    font-family: "LXGW Marker Gothic", sans-serif;
     border: 1px solid black;
     padding: 5px;
+    font-size: 20px;
     line-height: 50px;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #3988c4;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    text-align: center
 }
+
+
 
 
 
@@ -122,23 +151,30 @@
     width: 100%;
     margin: 0;
     display: block;
-    padding: 1%;
+
 }
 
 .sideBar ul li a {
     text-decoration: none;
     color: black;
-    margin-right: auto;
+    display: inline-block;
+    padding: 7px 0 7px 0;
+    width: 100%;
+    height: 100%;
 }
 
 .sideBar ul li:hover {
     background-color: #3988c4;
-    width: 100%
+
 }
 
 
 .sideBarContainer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+
 
 }

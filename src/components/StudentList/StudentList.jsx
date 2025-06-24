@@ -33,11 +33,9 @@ const StudentList = (props) => {
     };
 
     return (
-        <div>
+        <div className='classListContainer'>
             <h1 className='classListTitle'>My Class List</h1>
             <div>
-
-
                 <button id='addStudentButton' onClick={handleToggleForm}>
                     {showForm ? <IoIosCloseCircleOutline className='showFormPic' /> : <MdOutlinePersonAddAlt1 className='showFormPic' />}
                 </button>
@@ -68,7 +66,7 @@ const StudentList = (props) => {
 
 
                 {/* if there are no students, render "there are no students"
-                else, iterate through the students with for each loop */}
+                else, iterate through the students with map loop */}
 
                 {!props.students.length ? (
                     <h2>No Students Added Yet!</h2>

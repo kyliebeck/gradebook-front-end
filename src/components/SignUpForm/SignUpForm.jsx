@@ -56,6 +56,7 @@ const SignUpForm = () => {
             <form className='signUpForm' onSubmit={handleSubmit}>
                 <div className='authInput'>
                     <label htmlFor='nickname'>Name *</label>
+
                     <input
                         type='text'
                         id='nickname'
@@ -78,8 +79,10 @@ const SignUpForm = () => {
                 </div>
                 <div className='authInput'>
                     <label htmlFor='password'>Password *</label>
+                    <div><small>Required at least 6 characters</small></div>
                     <input
                         type='password'
+                        minLength='6'
                         id='password'
                         value={password}
                         name='password'

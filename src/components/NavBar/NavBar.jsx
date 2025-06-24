@@ -6,8 +6,8 @@ import { Link } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
 import './NavBar.css';
 import Logo from '../../assets/Logo.png'
-import { GiHamburgerMenu } from "react-icons/gi";
 import HamburgerNav from '../HamburgerNav/HamburgerNav'
+
 
 
 
@@ -29,7 +29,6 @@ const NavBar = () => {
     const toggleHamburger = async () => {
         setShowSideNav(!showSideNav)
     };
-
 
 
     return (
