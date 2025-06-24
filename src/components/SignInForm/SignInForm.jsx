@@ -41,6 +41,7 @@ const SignInForm = () => {
                 <div className='authInput'>
                     <label htmlFor='email' id='authLabels'>Username:</label>
                     <input
+                        className='input-field'
                         type='text'
                         id='username'
                         value={formData.username}
@@ -50,7 +51,7 @@ const SignInForm = () => {
                     />
                 </div>
                 <div className='authInput'>
-                    <label htmlFor='password' id='authLabels'>Password:</label>
+                    <label className='input-label' htmlFor='password' id='authLabels'>Password:</label>
                     <input
                         type='password'
                         id='password'

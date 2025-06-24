@@ -142,13 +142,16 @@ const App = () => {
   const handleUpdateAssignment = async (assignmentId, formData) => {
     try {
 
+      console.log(assignmentId)
+      console.log(formData)
+
       const updatedAssignment = await assignmentService.update(assignmentId, formData);
       // handle errors
       if (updatedAssignment.err) {
         throw new Error(updatedAssignment.err)
       }
       const updatedAssignmentList = assignments.map((assignment) => {
-        assignment._id !== updatedAssignment._id ? assignment : updatedAssignment
+        assignment._id !== updatedAssignment._id ? updatedAssignment : assignment
       })
       setAssignments(updatedAssignmentList);
 

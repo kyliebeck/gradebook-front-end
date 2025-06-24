@@ -15,9 +15,15 @@ const AssignmentList = (props) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        console.log('target', evt.target)
+        console.log('name', evt.target.name)
+        console.log('value', evt.target.value)
+        console.log('formdata', formData)
+        console.log('id', evt.target.id)
 
-        props.handleUpdateAssignment(formData[assignment._id], { pointsReceived: assignment.pointsReceived })
-        setFormData({ ...formData, [evt.target.name]: evt.target.value })
+        // setFormData({ ...formData, [evt.target.getAttribute('name')]: evt.target.getAttribute('value') })
+
+        // props.handleUpdateAssignment(evt.target.getAttribute('name'), { pointsReceived: evt.target.getAttribute('value') })
     }
 
     const handleChange = (evt) => {
