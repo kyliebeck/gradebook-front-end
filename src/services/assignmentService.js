@@ -41,10 +41,10 @@ const create = async (formData) => {
     }
 };
 
-const update = async (formData) => {
+const update = async (assignmentId, formData) => {
 
     try {
-        const res = await fetch(BASE_URL, {
+        const res = await fetch(`${BASE_URL}/${assignmentId}`, {
             method: 'PUT',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,

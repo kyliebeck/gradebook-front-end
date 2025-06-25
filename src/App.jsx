@@ -142,9 +142,6 @@ const App = () => {
   const handleUpdateAssignment = async (assignmentId, formData) => {
     try {
 
-      console.log(assignmentId)
-      console.log(formData)
-
       const updatedAssignment = await assignmentService.update(assignmentId, formData);
       // handle errors
       if (updatedAssignment.err) {

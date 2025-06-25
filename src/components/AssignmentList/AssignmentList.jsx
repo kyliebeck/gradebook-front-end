@@ -1,10 +1,15 @@
 import { Link } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
 import { useState, useEffect, useContext } from 'react'
-
+import { useParams } from 'react-router';
+import * as assignmentService from '../../services/assignmentService';
 
 const AssignmentList = (props) => {
+    const { assignmentId } = useParams()
     const { user } = useContext(UserContext)
+
+    const [inputValue, setInputValue] = useState('');
+
     const [formData, setFormData] = useState(
         props.assignments.reduce((formDataObject, assignment) => {
             // make new key/val pair in formdata object
@@ -13,22 +18,25 @@ const AssignmentList = (props) => {
         }, {}))
 
 
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        console.log('target', evt.target)
-        console.log('name', evt.target.name)
-        console.log('value', evt.target.value)
-        console.log('formdata', formData)
-        console.log('id', evt.target.id)
+        // props.handleUpdateAssignment(assignmentId, formData)
 
-        // setFormData({ ...formData, [evt.target.getAttribute('name')]: evt.target.getAttribute('value') })
+        console.log("props.assignments", props.assignments)
 
-        // props.handleUpdateAssignment(evt.target.getAttribute('name'), { pointsReceived: evt.target.getAttribute('value') })
     }
 
     const handleChange = (evt) => {
+
         setFormData({ ...formData, [evt.target.name]: evt.target.value });
+
+        setInputValue(evt.target.value)
+
+        console.log('evt.target.value', evt.target.value)
+        console.log('evt.target.name', evt.target.name)
     }
+
 
 
     return (
@@ -44,8 +52,8 @@ const AssignmentList = (props) => {
                 <ul>
                     {props.assignments.map((assignment) => (
 
-                        <li id='assignmentContainer'
-                            key={assignment._id} className="assignmentList"
+                        <li
+                            key={assignment._id} className="assignmentContainer"
                             style={{ cursor: 'pointer', color: "#646CFF" }}>
                             <Link
                                 className='assignmentListTitle' to={`/assignments/${assignment._id}`}>{assignment.assignmentType} {assignment.title}: {assignment.student.firstName} {assignment.student.lastName} </Link>
@@ -60,7 +68,8 @@ const AssignmentList = (props) => {
                                     name={assignment._id}
                                     onChange={handleChange}
                                 />/{assignment.maxPoints}
-                                <button type='submit' className='saveBtn'>Save</button>
+
+                                <button onClick={() => props.handleUpdateAssignment(assignmentId)} type='submit' className='saveBtn'>Save</button>
                             </form>
 
                         </li>
